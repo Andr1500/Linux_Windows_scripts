@@ -1,0 +1,37 @@
+1. sudo apt update && sudo apt -y install apache2
+
+echo '<!doctype html><html><body><h1><p style="color:yellow">WEB Server 1 </p></h1></body></html>' | sudo tee /var/www/html/index.html
+
+echo '<!doctype html><html><body><h1><p style="color:green">WEB Server 2 </p></h1></body></html>' | sudo tee /var/www/html/index.html
+
+echo '<!doctype html><html><body><h1><p style="color:red">WEB Server 3 </p></h1></body></html>' | sudo tee /var/www/html/index.html
+
+2. HAproxy
+
+haproxy -v
+
+sudo apt-get install haproxy
+
+sudo service haproxy status
+
+ cd /etc/haproxy
+ 
+sudo vi haproxy.cfg
+
+config:
+###################################
+frontend my_http_front
+        bind *:80
+        default_backend my_http_back
+frontend my_secret_front
+        bind *:8080
+        default_backend my_secret_back
+backend my_http_back
+        balance roundrobin
+        server myweb1 10.156.0.2:80 weight 90 #weight is % of balancing
+        server myweb2 10.156.0.3:80 weight 10
+backend my_secret_back
+        server mysecretweb 10.156.0.4:80
+##################################### 
+
+sudo service haproxy restart
