@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ "$1" == "vasia" ]; then
+        echo "privet, $1 !"
+elif [ "$1" == "bob" ]; then
+        echo "hello, $1 !"
+else echo "not identified who you are, $1"
+fi #end pf the function if
+
+echo "please put something: "
+read x
+echo "starting CASE selection..."
+case $x in
+        1)echo "this is one";;
+    [2-9]) echo "from two to nine";;
+  "petia") echo "privet, $x";;
+        *) echo "parameter unknown"
+esac #end of case function

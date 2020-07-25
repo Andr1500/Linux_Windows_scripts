@@ -1,0 +1,17 @@
+#!/bin/bash
+mypc="Asus"
+myOS=`uname -a`
+read -p "enter your name: " name
+echo "this script name is $0" #$0 is variable for the name of the script
+echo "hello $1"  #$1 is next name after script name 
+echo "hi $2"	#$2 is next name after $2
+num1=50
+num2=40
+sum=$((num1+num2)) #summa of the 2 variables
+echo "$num1 + $num2 = $sum"
+myhost=`hostname` 
+mygtw="8.8.8.8"
+ping -c 3 $myhost
+ping -c 3 $mygtw
+echo "$name"
+echo -n "this is done..."

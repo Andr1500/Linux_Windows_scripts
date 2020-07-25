@@ -1,0 +1,11 @@
+#!/bin/bash
+sum=0
+myfunction()
+{
+        echo "this text is from Function"
+        echo "first num is: $1"
+        echo "second num is: $2"
+        sum=$(($1+$2))
+        echo "suma is: $sum"
+}
+myfunction 34  456
