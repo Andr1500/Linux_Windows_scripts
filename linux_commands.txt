@@ -1,0 +1,209 @@
+commands:
+
+uptime
+
+uname #name of OS system
+
+uname -a # full info about OS system
+
+lscpu #list of the processes in cpu
+
+ls -l # directories of the files
+
+echo $PATH # directories of the path's (commands)
+
+man -k #command help for seach something
+
+man -k time # search every command contain word "time"
+
+man uptime # full info about the cpmmand "uptime"
+
+more linux.txt # see what comtain file linux.txt
+
+less linux.txt # open file as document
+
+man -k pass #search command contain word "pass"
+
+info uptime #info about uptime
+
+whatis uptime # give the information about the command
+
+whereis uptime #show the way to command "uptime"
+
+ps #processes
+
+CTRL + Z #make process to background (ping f.e.)
+
+fg # restore process from background
+
+cd / # going to root directory
+
+pwd #print working directory
+
+cd ../.. #go back to 2 directories back
+
+cd # going from any directory to the home directory
+
+cd ~/documents/ #going from any directory to the directory "documents"
+                # in home directory
+
+cp hello.txt ~/documents/dir1/ #copy file to the directory
+
+cp hello?.txt -v dir1 #copy files with any symbol instead "?" to the dir1
+						#-v show the process of doing something
+						
+rm dir1/* #delete all files from the directory
+
+ls -l dir1/ #check the files in the dir1
+
+cp -R dir1 -v newdir #copy dir to another dir
+
+mv secret.txt .secret.txt #move the file
+
+.secret.txt #making the file unvisible
+
+mkdir -p dir4/dir5 #making dir5 in dir4 
+
+rm -R newdir* #remove all dir and contains started with "newdir"
+
+ln -s /home/andrii_shykhov/documents/dir4 mylinktodir4
+		#create link to the dir
+		
+find /home -name "*.txt" #search all files in dir /home with .txt 
+
+wc linux1.txt #information about the conaits file(how many lines, words, symbols)
+
+sort linux1.txt #sort contains in file (by alphabet, by numbers...)
+
+sort -n linux1.txt# sort by the numbers (from small to high)
+
+cut -d ":" -f 1 linux1.txt #find nessesary info in the file. -d is delimiter.
+							# -f is fild 
+							
+cut -d ":" -f 1 linux1.txt | sort #+sort of the output 
+
+grep Linux ./* #search in all our dir in all files contain word Linux
+
+grep -i linux ./*# +ignoge key sensitive(big or small leters)
+
+ grep Version linux1.txt # search sentences contain "Version" in the file
+ 
+grep -E "@[A-Za-z_-]*." emails.txt # find emails in the document(regular expressions)
+
+grep -E "[A-Za-z]@[A-Za-z_-]*.pl" emails.txt # +emails contain .pl
+
+grep -E "(gmail.com|wp.pl)" emails.txt #search emails contain first or second condition
+
+sort -n numbers.txt > emails_sorted.txt #sort contain and put it to another file
+
+sort emails.txt >> emails_sorted.txt # sort emails and add it to another file
+
+ grep andrii /etc/* #search search all info contais "andrii" in directory /etc/*
+ 
+grep andrii /etc/* 2> errors.txt # +without errors on screen +add errors to the file
+
+2> #redirect bad answers to somewhere
+
+grep andrii /etc/* 2> /dev/null #search info and redirect errors to null directory
+
+grep andrii /etc/* > good.txt 2> errors.txt #save results to different files
+
+grep andrii /etc/* &> results.txt #save all output to one file
+
+tar #command, type archive
+
+tar cf mytar.tar dir1 # create archive "mytar.tar" and put here dir1(cf-create file)
+
+tar cvf mytar1.tar dir1 #+show the process of archiving
+
+tar tf mytar.tar #sgow of contains archive (tf - test file)
+
+ tar xvf mytar.tar #xvf - extract verbose files
+ 
+gzip mytar1.tar #compress the archived file
+
+gunzip mytar1.tar #decompress the arcived file
+
+bzip2 mytar.tar bunzip2 mytar.tar.bz2 #compr and decompr with bzip2
+
+ xz mytar.tar unxz mytar.tar.xz # -||- with xz
+ 
+ tar cvzf myzip.gz dir1 # arcive + compress dir1 (z - gzip)
+ 
+tar cjf mybzip.bz2 dir1 # j - bzip
+
+tar cJf myxz.xz dir1 # J - xzip
+
+top #display linux processes
+
+free #Display amount of free and used memory in the system
+
+free -h # h -human adaptive
+
+ps -u andrii #show all processes of the user " "
+
+ps -aux # show all processes all users
+
+/var/log #dir with all logs
+
+dmesg  #print or control the kernel ring buffer(logs in this buffer)
+
+su vasia #switch user to another account
+
+id # show credentials of user
+
+last  #show a listing of last logged in users
+
+who  #show who is logged on
+
+w  #Show who is logged on and what they are doing.
+
+/etc/passwd # dir for accounts
+
+/etc/shadow # dir for passwords
+
+/etc/group #dir for groups
+
+sudo useradd -m user1 #create new user 
+
+sudo userdel -r user1 # delete the user
+
+sudo groupadd Programmers #create new group
+
+cat /etc/group #check the group
+
+sudo groupdel Sales #delete the group
+
+sudo usermod -aG Programmers user1 #add user to another group
+
+sudo deluser user1 Programmers # delete user from the group
+
+/etc/skel #skel - skeleton, template home dir
+
+sudo passwd user1 #change the password for the user
+
+sudo chown andrii write.txt #chown- change owner. change owner of the file or dir
+
+drwxr-xr-x 2 user1          root           4096 Jul 24 13:08 docs #
+		#d - directory, - is file, rwx- privileges for owner (read,write, execute), 
+		# r-x privileges for group (read, execute only),
+		# r-x privileges for others, everyone else
+		# 2 - number of files or directories inside
+		# user1 - user owner of the dir or file
+		# root - group owner 
+		# docs - the name of the dir
+		
+sudo chgrp Programmers write.txt # change group for the file
+
+sudo chmod u+x write.txt #change modification user + execute
+
+sudo chmod g+w write.txt # -||- group + write
+
+sudo chmod o+w write.txt #-||-n others + write
+
+sudo chmod g-x write.txt # -||- group - write
+
+ sudo chmod ugo=r write.txt #-||- for users group and others only read option
+ 
+sudo chmod o+t qw.txt #protect the file of deletion from another user
+
