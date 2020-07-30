@@ -1,0 +1,72 @@
+git config --global user.name 'a1500' #nesessary for identify changes in repo
+
+git config --global user.email 'a1500@tutanota.com'
+
+ git config -l #check the congiguration on linux
+ 
+type .\.gitconfig # check config on windows
+
+dir  # check the dir in windows
+
+git init \Users\under\myproject\ #create local database for repository
+
+ git status #check the status of the repo
+ 
+git add *  #add all files in dir to commit
+			#add files to staging status
+
+git commit -m "my initial commit, version1.0" 
+		#Takes the staged snapshot and commits it to the project history. 
+		
+git log  #check history of git changes in logs
+
+git log -2 # show last 2 logs
+
+git log -2 -p   #+add details about log
+
+git checkout -- file1.txt  #discard changes in file1
+
+git diff --staged  #show what will be write in commit
+					#diff between now and last commit
+					
+ New-Item .gitignore #create new file .gitignore
+ 
+ git push origin #push existing project to github repo
+ 
+ssh-keygen  #generate keys on linux server in console
+
+ git remote -v   #connect with github
+ 
+git clone git@github.com:Andr1500/organization.git  
+		#clone the repo from github
+ 
+ssh-keygen (in git-bash)  #generate keys on windows 
+
+git branch   #show branches in main repository
+
+git branch fix_error  # create new branch "fix_error"
+
+git checkout fix_error  #switch on another branch
+
+git branch -d fix_error #delete branch "fix_error"
+
+git checkout -b fix_error1   #create new branch and switch on it
+ 
+git merge fix_error1  #merge (connect) another branch with master branch
+
+git checkout 25b8c45cd8051cbd8a8676ac1c7f07374222b48f 
+		#switch on another (previosly) version 
+
+ git commit --amend  # amend (change) info in commit
+ 
+git reset --hard HEAD~2  #delete and come back 2 versions before
+
+git reset --soft HEAD~3  #make last commit as first (just in logs)
+
+ git push --set-upstream origin a1500_change_CH259874
+		#push into github repo from another branch
+		
+push origin --delete a1500_change_CH259874
+		#delete remotely (from github) the branch
+		
+

@@ -1,0 +1,66 @@
+sudo fdisk -l #show disks partition table
+
+lsblk  #list block of devices(disks, ...)
+
+sda, sdb  #sata disk A, sata disk B, ...
+
+sudo cfdisk /dev/sda #show the disk partition table
+
+sudo mkfs.ntfs -f /dev/sdb1 # mkfs.ntfs - make file system NTFS 
+					# -f is format
+					
+sudo nano /etc/fstab  #modify file system file
+
+<file system> <mount point> <type> <options> <dump> <pass>
+/dev/sdb1     /media/hdd2   ntfs   default   0      0
+
+ln -s /media/hdd2/ ~/Desctop/HDD2 #create link on the hard disk
+
+cat /etc/hostname  #file with the name of the host
+
+sudo nano /etc/hostname #change the name of the host 
+
+sudo nano /etc/network/interfaces  #change int settings
+
+auto ens4 #name of the int card
+iface ens4 inet static
+        address 192.168.1.1
+        netmask 255.255.255.0
+        dns-nameservers 8.8.8.8
+		
+sudo ifdown/ifup ens4 #  down/up network adapter
+
+service ssh status #check status of ssh on the server
+
+service ssh start #run ssh service
+
+sudo nano /etc/ssh/sshd_config #change settings in case "perm denied"
+PermitRootLogin prohibit-password to PermitRootLogin yes 
+PasswordAuthentication no to PasswordAuthentication yes
+
+sudo service ssh restart #restart ssh service
+
+crontab  #tables for driving cron (by schedule)
+
+* * * * * command to be executed
+- - - - -
+| | | | |
+| | | | ----- Day of week (0 - 7) (Sunday=0 or 7)
+| | | ------- Month (1 - 12)
+| | --------- Day of month (1 - 31)
+| ----------- Hour (0 - 23)
+------------- Minute (0 - 59)
+
+*  *  *  *  1  echo "hello! " >> /home/andrii_shykhov/scripts/mylog.log
+		#create log with "hello" text in log file every minute
+		
+*/2 * * * *  # -||- every 2 minutes
+
+ /var/spool/cron//crontabs/  #dir with cron file
+
+  sudo nano /etc/crontab # dir for root processes
+  
+sudo cat /var/log/syslog #system logs 
+
+
+
