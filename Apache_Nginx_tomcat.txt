@@ -1,0 +1,78 @@
+Apache web server:
+
+sudo apt update && sudo apt -y install apache2
+
+/var/www/html/  #dir for web page
+
+Nginx web server:
+https://phoenixnap.com/kb/install-nginx-on-ubuntu
+
+sudo apt update
+
+sudo apt install nginx
+
+sudo systemctl status nginx
+
+sudo systemctl start nginx
+
+sudo ufw enable  £enable firewalls rules
+
+sudo ufw status
+
+sudo mkdir /var/www/webpage 
+
+sudo vi /var/www/webpage/index.html
+
+sudo vi /etc/nginx/sites-available/example.com
+
+server {
+listen 80;
+root /var/www/example;
+index index.html;
+server_name www.example.com;
+}
+
+/var/www/html  #folder with default web page
+
+Tomcat webserver
+https://www.cloudbooklet.com/how-to-install-tomcat-9-on-ubuntu-18-04-google-cloud/
+
+sudo apt update
+sudo apt upgrade
+
+sudo apt install default-jdk
+
+sudo groupadd tomcat #create user tomcat
+ 
+sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+
+sudo mkdir /opt/tomcat
+
+cd /tmp
+curl -O https://downloads.apache.org/tomcat/tomcat-9/v9.0.37/bin/apache-tomcat-9.0.37.tar.gz
+
+sudo tar xzvf apache-tomcat-9.0.37.tar.gz -C /opt/tomcat --strip
+-components=1
+
+cd /opt/tomcat
+
+sudo chgrp -R tomcat /opt/tomcat
+sudo chmod -R g+r conf
+sudo chmod g+x conf
+sudo chown -R tomcat webapps/ work/ temp/ logs/  #permitions for tomcat user
+
+sudo update-java-alternatives -l
+
+sudo nano /etc/systemd/system/tomcat.service
+
+sudo systemctl daemon-reload
+
+sudo systemctl start tomcat
+
+sudo systemctl enable tomcat
+
+sudo nano /opt/tomcat/conf/tomcat-users.xml
+
+ Configure Firewall in GCP 
+
+sudo service tomcat stop
