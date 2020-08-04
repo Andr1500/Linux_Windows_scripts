@@ -32,6 +32,8 @@ whereis uptime #show the way to command "uptime"
 
 ps #processes
 
+ps aux  #show processes for all users
+
 CTRL + Z #make process to background (ping f.e.)
 
 fg # restore process from background
@@ -71,6 +73,16 @@ ln -s /home/andrii_shykhov/documents/dir4 mylinktodir4
 		
 find /home -name "*.txt" #search all files in dir /home with .txt 
 
+find / -type f -name 'myfile.txt' #find the file by type "file" and by the name
+
+sudo find /etc -type f | wc #how many files in the folder /etc
+
+sudo find /tmp/ -type d -name 'folder*' -exec chmod 777 {} \;
+		#find and change rules for all folders in the folder /tmp/
+
+find /tmp/ -type f -name 'file*' -exec chmod 444 {} \;
+		find and change rules for all files in dir /tmp/
+		
 wc linux1.txt #information about the conaits file(how many lines, words, symbols)
 
 sort linux1.txt #sort contains in file (by alphabet, by numbers...)
@@ -207,3 +219,16 @@ sudo chmod g-x write.txt # -||- group - write
  
 sudo chmod o+t qw.txt #protect the file of deletion from another user
 
+
+locate  #command, find files by name
+
+sudo apt install locate  #install locate command
+
+sudo updatedb  #update DB for mlocate
+
+sed   #stream editor for filtering and transforming text
+
+sed -i 's/test/test2/g' /tmp/test_sed.txt
+		#change all words "test" on the word "test2"
+		
+sed s/' '//g -i /tmp/test_sed.txt #delete all spaces from the file
