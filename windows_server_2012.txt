@@ -1,0 +1,23 @@
+server manager
+
+Tl{*8=WlcA>>TOo
+
+DC domain controler -> controls AD services
+
+user accounts and domain accounts -> schema
+
+users -> accounting groups -> accesses to accounting folder
+
+organizational unit:administrating properties for some group
+
+subdomain and 2 way transitive trust
+
+tree: adding subdomains to original domain
+
+one way expicit trust between different dimains
+
+forest: connect different domains with each other
+
+
+
+

@@ -1,0 +1,122 @@
+ctrl + k -> ctrl + u #uncomment something in mssql
+ctrl + k -> ctrl + c #comment something
+
+/*  */  #comment and uncomment piece of the text
+
+history*2 as '2 time hidtory' #name of the column
+
+ desc / asc  # order by from biggest to smallest / from smallest to biggest
+
+abs  #inverse negative number into positive
+
+ceiling  # function allows you to round a number up to the nearest integer
+
+floor  # function allows you to round a number down to the nearest integer.
+
+round(3.768, 2)  #function rounds a number to a specified number
+
+power  #function one number raised to another
+
+rand()  #random numbers from 0 to 1
+
+replace('I have something', 'I ', 'you ') #replace function
+
+lower(name) / upper(name) #all letters are lower / upper case
+
+reverce()  #function, reverce 
+
+rtrim, ltrim  #cut spaces from right and left
+
+replicate(name, 2)  #replicate names 2 times
+
+len(name)  #length of the name (symbols)
+
+substring()  # extracts a substring with a specified length 
+			#starting from a location in an input string(strart from 1) 
+			
+select count(name) from student; #count all exists table cells
+
+avg()  #average value of an expression
+
+min() max()  #min and max from table cells
+
+CASE  			#condition block
+	when ...
+	when ...
+END
+
+select top 20 percent with TIES *  #take only 20%
+
+offset 3 rows
+fetch next 3 rows only  #without 3 first and with 3 next lines
+
+DECLARE ...  #declare variables
+
+where id <> 5 and id != 7  #id is not 5 and 7
+
+select *   #select lines with nesessary ids
+from student WHERE id in (1,2,3);
+
+select * from student  # names, contain 'something' a 'something'
+WHERE name like '%a%'
+
+select *from student   #names, contain '1 letter' e 'something'
+WHERE name like '_e%'
+
+select * from student   #ids from 2 to 6
+WHERE id between 2 and 6;
+
+union  #function , combines the results of two or more queries 
+
+except  #operator is used to exclude like rows that are found in one query but not another.
+
+intersect  #used to return the records that are in common between two SELECT 
+			statements or data sets.
+			
+group by  #groups rows that have the same values into summary rows
+
+order by  #keyword is used to sort the result-set in ascending or descending order
+
+select mathematic, sum(mathematic) over () as 'sum math'
+		#over, building new column with the sum
+		
+select mathematic, history, over(partition by mathematic)
+		#partition by, does not affect the number of rows returned
+
+select mathematic, sum(history) as sum_history, sum(geography) as sum_geography 
+from student where id>1  group by mathematic  having mathematic>3;		
+		#having  similar to where, works with functions 
+
+with CTE AS(
+select name, mathematic*2 as double_math from student)
+select name, double_math from CTE;
+
+CTE   #command table expression
+
+row_number  #func to provide numbering of the rows in tye result-set
+
+exists  #operator used to test for the existence of any record in query
+
+ANY operator  #returns true if any of the subquery values meet the condition.
+
+ALL operator  #returns true if all of the subquery values meet the condition
+
+truncate  #remove all rows in the table
+
+mathematic +=1  #mathematic = mathematic + 1
+
+merge  # synchronize 2 tables by ins,del,upd target rows
+
+create view People as  #create view of the table
+
+alter view # modify the view of the table
+
+sp_helptext People #logs about works with the view People
+
+sp_rename 'People', 'People2' #rename the view
+
+SELECT Students.admission, Students.firstName, Students.lastName, Fee.amount_paid
+FROM Students
+INNER JOIN Fee
+ON Students.admission = Fee.admission #inner join, left outer, right outer
+										#full outer join
