@@ -1,0 +1,76 @@
+server manager
+
+
+DC domain controler -> controls AD services
+
+user accounts and domain accounts -> schema
+
+users -> accounting groups -> accesses to accounting folder
+
+organizational unit:administrating properties for some group
+
+subdomain and 2 way transitive trust
+
+tree: adding subdomains to original domain
+
+one way expicit trust between different dimains
+
+forest: connect different domains with each other
+
+local domain controler
+
+site link bridge head #connections between main domain controler and
+					#remote (brunches) domain controlers
+					
+read-write DC in main office and read-only DC in brunch office
+
+Global catalog  #stores copies of all AD objects in the forest. 
+
+"Promote this server as a domain controler" -> "add a new forest"
+
+net user Administrator P@ssword /passwordreq:yes 
+
+TOOLS ->DHCP -> IPv4 -> context menu -> new scope
+
+TOOLS ->DNS ->forward lookup zones ->'my DNS name' ->context menu ->new host
+		#adding new host 
+		
+TOOLS ->Active ditectory users and computers->'my DNS'->users->new->User
+
+Users->New->group  #adding new AD group
+
+disk c->folder Shared->properties->sharing->share->everyone->read and write
+		#sharinf the folder on the disk
+		
+NTFS vs Share permisions
+
+GPO  group policy objects
+
+TOOLS->roles and server groups->forest->domais->'my domain'->new organisational unit
+
+-||- ->'my domain'->group policy objects->new
+
+'org unit'->Link an existing GPO->mark nesessary GPO
+
+Users->'user'->Move...->'org unit'
+
+Roaming profile
+
+'user'->properties->profile->\\'server name'\profiles\%username%
+
+disk space quotas
+
+Add roles and features->file and storage services->file server resource manager
+		#install it for manage disk quotas
+		
+TOOLS->file server resource manager->quota management->quota templates->new templates-
+
+quotas->create quota
+
+prevent specific file types from being saved in shared folders
+
+file server resourc manager->file screening manager->
+
+Disk management->shrink and extended disk volume
+
+server manager->local server->Nic teaming #for fault tolerance

@@ -1,0 +1,33 @@
+
+inod in linux : delete old files or change file system
+
+df -i  #inods
+
+ls -li #files with the numbers of inodes
+
+fork()  #start process
+
+statuses of the process: R - running, s- sleep, 
+d - awaiting for input/output, t - stopped, z - zombie
+
+@ubuntu1:~$ ps -efl | grep "z.py"
+0 S andrii_+  2549  1855  0  80   0 -  5971 poll_s 19:16 pts/0    00:00:00 /usr/bin/python ./z.py
+0 S andrii_+  2552  2474  0  80   0 -  3236 pipe_w 19:16 pts/1    00:00:00 grep --color=auto z.py
+@ubuntu1:~$ ps -efl | grep 2549
+0 S andrii_+  2549  1855  0  80   0 -  5971 poll_s 19:16 pts/0    00:00:00 /usr/bin/python ./z.py
+0 Z andrii_+  2550  2549  0  80   0 -     0 -      19:16 pts/0    00:00:00 [ls] <defunct>
+0 S andrii_+  2567  2474  0  80   0 -  3236 pipe_w 19:16 pts/1    00:00:00 grep --color=auto 2549
+@ubuntu1:~$ ps -efl | grep 2550
+0 Z andrii_+  2550  2549  0  80   0 -     0 -      19:16 pts/0    00:00:00 [ls] <defunct>
+0 S andrii_+  2607  2474  0  80   0 -  3236 pipe_w 19:16 pts/1    00:00:00 grep --color=auto 2550
+@ubuntu1:  kill -9 2549  #kill zombie process
+
+ sudo apt-get install gdb
+ 
+@ubuntu1:~$ sudo gdb -p 2779
+
+(gdb) call wait(2780)
+
+@ubuntu1:~$ ps -efl | grep ls  #zombie killed, but process is in work
+0 S andrii_+  3222  2474  0  80   0 -  3236 pipe_w 19:39 pts/1    00:00:00 grep --color=auto ls
+
