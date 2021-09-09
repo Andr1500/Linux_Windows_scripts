@@ -31,6 +31,8 @@ git diff --staged  #show what will be write in commit
 					
  New-Item .gitignore #create new file .gitignore
  
+ git remote add origin 'your_url_name' #add remote repository before pushing
+ 
  git push origin #push existing project to github repo
  
 ssh-keygen  #generate keys on linux server in console
