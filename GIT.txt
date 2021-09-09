@@ -33,6 +33,8 @@ git diff --staged  #show what will be write in commit
  
  git remote add origin 'your_url_name' #add remote repository before pushing
  
+ git remote rm origin #delete way to the remote repo
+ 
  git push origin #push existing project to github repo
  
 ssh-keygen  #generate keys on linux server in console
