@@ -28,6 +28,7 @@ git checkout -- file1.txt  #discard changes in file1
 
 git diff --staged  #show what will be write in commit
 					#diff between now and last commit
+git diff master #show the difference between current brunch and the master brunch
 					
  New-Item .gitignore #create new file .gitignore
  
