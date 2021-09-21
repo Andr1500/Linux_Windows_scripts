@@ -28,7 +28,7 @@ git checkout -- file1.txt  #discard changes in file1
 
 git diff --staged  #show what will be write in commit
 					#diff between now and last commit
-git diff master #show the difference between current brunch and the master brunch
+git diff master #show the difference between current branch and the master branch
 					
  New-Item .gitignore #create new file .gitignore
  
@@ -71,6 +71,9 @@ git reset --soft HEAD~3  #make last commit as first (just in logs)
  git push --set-upstream origin a1500_change_CH259874
 		#push into github repo from another branch
 		
+GitHub -> Insights -> Network #here we can see branches and history
+
+
 push origin --delete a1500_change_CH259874
 		#delete remotely (from github) the branch
 		
