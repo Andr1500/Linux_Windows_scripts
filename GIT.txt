@@ -29,6 +29,12 @@ git checkout -- file1.txt  #discard changes in file1
 git diff --staged  #show what will be write in commit
 					#diff between now and last commit
 git diff master #show the difference between current branch and the master branch
+
+git diff 1fa95770f4ea1d640fcf7e4d06a25e99c10d6bed 26282f9fdd8cecb2f105abf6a04db689e98b815b
+		#difference between 2 commits
+		
+git diff 1fa95770f4 26282f9fdd8 #the same, short version of commit's tags
+		#it works if at the begin we have unque numbers
 					
  New-Item .gitignore #create new file .gitignore
  
@@ -72,6 +78,9 @@ git reset --soft HEAD~3  #make last commit as first (just in logs)
 		#push into github repo from another branch
 		
 GitHub -> Insights -> Network #here we can see branches and history
+
+Project -> Commits -> "Choose commit" -> Browse files
+		#see the changes related to some commit
 
 
 push origin --delete a1500_change_CH259874
