@@ -70,6 +70,8 @@ git checkout 25b8c45cd8051cbd8a8676ac1c7f07374222b48f
 
  git commit --amend  # amend (change) info in commit
  
+ git commit -a -m "..." #add and commit changes in tehe repository
+ 
 git reset --hard HEAD~2  #delete and come back 2 versions before
 
 git reset --soft HEAD~3  #make last commit as first (just in logs)
@@ -86,4 +88,5 @@ Project -> Commits -> "Choose commit" -> Browse files
 push origin --delete a1500_change_CH259874
 		#delete remotely (from github) the branch
 		
-
+work with someone else's repository:
+	fork it to own GutHub account, clone it locally, work with it, push on GitHub, merge (if necessary) to original repo 
