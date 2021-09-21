@@ -90,3 +90,6 @@ push origin --delete a1500_change_CH259874
 		
 work with someone else's repository:
 	fork it to own GutHub account, clone it locally, work with it, push on GitHub, merge (if necessary) to original repo 
+	
+git rebase master #Reapply commits on top of another base tip(when you are in another branch),
+	it's like copying commits from another branch to the current branch
