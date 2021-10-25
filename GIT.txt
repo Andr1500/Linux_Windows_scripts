@@ -94,5 +94,5 @@ work with someone else's repository:
 git rebase master #Reapply commits on top of another base tip(when you are in another branch),
 	it's like copying commits from another branch to the current branch
 
-git remote set-url origin git@github.com:login/repo.git
+git remote remove origin
 	#delete remote repo which set up locally
