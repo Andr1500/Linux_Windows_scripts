@@ -1,6 +1,6 @@
-git config --global user.name 'a1500' #nesessary for identify changes in repo
+git config --global user.name 'abc' #nesessary for identify changes in repo
 
-git config --global user.email 'a1500@tutanota.com'
+git config --global user.email 'abc@adc.com'
 
  git config -l #check the congiguration on linux
  
@@ -56,6 +56,8 @@ ssh-keygen (in git-bash)  #generate keys on windows
 git branch   #show branches in main repository
 
 git branch fix_error  # create new branch "fix_error"
+
+git switch remote_fix_error #switch to the branch which was added to the remote repo
 
 git checkout fix_error  #switch on another branch
 
