@@ -1,0 +1,35 @@
+2>&1
+
+curl www.goooooooooooooooogle.com > check.txt 2>&1
+The 1 denotes standard output (stdout). The 2 denotes standard error (stderr).
+
+So 2>&1 says to send standard error to where ever standard output is being redirected as well. Which since it's being sent to check.txt 
+
+cmd > log.txt
+
+it will create empty file log.txt and execute with error 
+"Command 'cmd' not found, but there are 19 similar ones."
+
+pwd > log.txt 
+
+it will redirect output of pwd commant into log.txt file
+
+cmd 2> log.txt
+
+this command will redirect output of the error "Command 'cmd' not found, but there are 19 similar ones."
+into log.txt file 
+
+export first_word=HELLO
+export second_word=WORLD
+
+echo "$first_word $second_word"
+it will print variables: HELLO WORLD 
+
+echo '$first_word $second_word'
+it will print the names of the variables $first_word $second_word, print it "as is"
+
+echo `$first_word $second_word`
+it will try to execute command in "``" but we will have error: HELLO: command not found
+
+echo "\$first_word \$second_word"
+it will print names of the variables : $first_word $second_word
