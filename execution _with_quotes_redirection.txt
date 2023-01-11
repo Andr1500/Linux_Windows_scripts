@@ -33,3 +33,29 @@ it will try to execute command in "``" but we will have error: HELLO: command no
 
 echo "\$first_word \$second_word"
 it will print names of the variables : $first_word $second_word
+
+“No Space Left on Device” Error
+1. check disk space 
+sudo df -h
+
+if disk space is enough, but you see error, reasons:
+Recently Deleted File - Often a file is deleted while a process is still using it, 
+keeping the space reserved even though the file is already gone.
+fix: Restart Processes Using Deleted Files
+sudo lsof / | grep deleted 
+sudo systemctl restart service_name
+sudo systemctl daemon-reload  #If there are multiple processes or you just don’t want to bother with finding specific services
+
+Not Enough Inodes - Inodes are the index pages of a Unix filesystem, holding the metadata of every file on storage.
+However, inodes aren’t unlimited, and running out of inodes before the storage space can give you the  error.
+Fix: check inodes
+sudo df -i 
+#All you can do is delete any unnecessary files to free up inodes for future files.
+
+Failing Hard Drive - Then of course there is the possibility that the hard drive is simply failing,
+and much of the apparent free space is taken up by bad sectors. 
+Since the system fails to write any files to these locations, it throws an error.
+fix: mark the bad sectors so that they are no longer referenced by the file system.
+Doing this requires you to boot from a Live CD, as you cannot perform a File System Check within a running drive. 
+Once you do that, just use the following command:
+sudo fsck -vcck /dev/sda
