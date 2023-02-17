@@ -74,9 +74,20 @@ git checkout 25b8c45cd8051cbd8a8676ac1c7f07374222b48f
  
  git commit -a -m "..." #add and commit changes in tehe repository
  
-git reset --hard HEAD~2  #delete and come back 2 versions before
+git reset --hard e4f61ba  #delete all changes and come back to the commit
 
-git reset --soft HEAD~3  #make last commit as first (just in logs)
+git reset --soft e4f61ba  #make the commit as first (just in logs), all the changes will store
+
+git revert HEAD #revert changes 1 commit back
+
+in case, if we need to revert multiple Git commits:
+
+A <-- B  <-- C <-- D <-- [(BCD)-1]                   <-- master <-- HEAD
+
+$ git revert --no-commit D
+$ git revert --no-commit C
+$ git revert --no-commit B
+$ git commit -m "the commit message for all of them"
 
  git push --set-upstream origin a1500_change_CH259874
 		#push into github repo from another branch
@@ -123,3 +134,34 @@ git branch -m main
 Finally, force update your repository:
 
 git push -f origin main
+
+make git cherry-pick. Cherry pick applies the changes introduced by the cherry picked commit onto the current branch. 
+If changes introduced by the picked commit conflict with changes to those files on the current branch, you will see a merge conflict.
+
+How to fix a Git Cherry Pick merge conflict
+
+Get the unique identifier of the commit you want to pick
+git log <branch-name> --oneline
+
+Use cherry-pick to grab that commit by specifying it’s identifier
+git cherry-pick <commit-hash>
+
+When cherry-pick fails with a merge conflict note the file(s) that failed the merge. Open each of the failed files in a text editor of your choice and manually resolve the conflicts. After saving the files, stage them:
+git add <file(s)-that-failed-merge>
+
+Continue the cherry-pick operation
+git cherry-pick --continue
+
+also, we can do that with some merge tools:
+
+Install a proper mergetool. On Linux, I strongly suggest you to use meld:
+
+sudo apt-get install meld
+Configure your mergetool:
+
+git config --global merge.tool meld
+Then, iterate in the following way:
+
+git cherry-pick ....
+git mergetool
+git cherry-pick --continue
