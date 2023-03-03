@@ -1,0 +1,11 @@
+#!/bin/sh
+# this file checks version of nginx, httpd and tomcat web servers
+if [ "$(command -v nginx)" ]; then
+  echo "Nginx version: $(nginx -v 2>&1 | awk -F / '{print $2}')"
+elif [ "$(command -v httpd)" ]; then
+  echo "Apache version: $(httpd -v | awk '/version/ {print $3}')"
+elif [ "$(command -v catalina.sh)" ]; then
+  echo "Tomcat version: $(catalina.sh version | awk '/Server version/ {print $4}')"
+else
+  echo "Server version information not available."
+fi
