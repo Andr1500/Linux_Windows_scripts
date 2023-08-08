@@ -139,6 +139,18 @@ git push -f origin main
 
 ########################
 
+delete all git configuration and next inti git repo and push to remote:
+
+rm -fr .git
+
+git init --initial-branch=main
+git remote add origin git@gitlab.com:GitAccount/gitRepo.git
+git add .
+git commit -m "Initial commit"
+git push --set-upstream origin main
+
+##########################
+
 remove the old history from a git repository:
 
 git checkout --orphan temp $1 # create a new branch without parent history
