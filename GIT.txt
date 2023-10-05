@@ -2,6 +2,14 @@ git config --global user.name 'abc' #nesessary for identify changes in repo
 
 git config --global user.email 'abc@adc.com'
 
+# if we need to define username and email locally, only in some repo:
+
+git config user.name "Your Username"
+
+git config user.email "your.email@example.com"
+
+git config --local --list  #check the local configuration
+
  git config -l #check the congiguration on linux
  
 type .\.gitconfig # check config on windows
