@@ -200,3 +200,17 @@ Then, iterate in the following way:
 git cherry-pick ....
 git mergetool
 git cherry-pick --continue
+
+##########################
+
+save not staged changes, make rebase with other branch and continue work with the saved changes
+
+1. stash changes :
+git stash push -m "Description of your work in progress"
+
+2. rebase changes :
+git rebase origin/staging
+
+3. apply stashed changes :
+git stash pop
+
