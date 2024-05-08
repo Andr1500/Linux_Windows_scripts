@@ -214,3 +214,16 @@ git rebase origin/staging
 3. apply stashed changes :
 git stash pop
 
+############################
+
+add changes from other branch, commit it
+
+git checkout branch-with-changes -- file_name.txt
+
+git reset HEAD file_name.txt  # unstage the file
+
+git diff file_name.txt # see diff for comment
+
+git add file_name.txt
+
+git commit -m 'change file_name.txt'
