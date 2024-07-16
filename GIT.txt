@@ -75,6 +75,16 @@ git checkout -b fix_error1   #create new branch and switch on it
  
 git merge fix_error1  #merge (connect) another branch with master branch
 
+###########################
+merge from "feature" branch into "main" branch:
+
+switch to "main" branch and merge "feature" branch into it:
+
+git merge --squash featurer_branch
+
+git commit -am "merged changes from feature branch"
+###########################
+
 git checkout 25b8c45cd8051cbd8a8676ac1c7f07374222b48f 
 		#switch on another (previosly) version 
 
