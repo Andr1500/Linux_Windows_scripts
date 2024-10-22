@@ -237,3 +237,10 @@ git diff file_name.txt # see diff for comment
 git add file_name.txt
 
 git commit -m 'change file_name.txt'
+
+###########################
+
+in case of any rebase, it's necessary to push with -force option,
+safety it can be done with this command:
+
+git push --force-with-lease
