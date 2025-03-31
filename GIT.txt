@@ -244,3 +244,20 @@ in case of any rebase, it's necessary to push with -force option,
 safety it can be done with this command:
 
 git push --force-with-lease
+
+###########################
+
+in case of error :
+"git@gitlab.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights
+and the repository exists."
+
+check connectivity with Gitlab account:
+ssh -T git@gitlab.com
+
+check if ssh agent is running:
+ssh-add -l
+
+if no keys, add it and check connectivity again:
+ssh-add ~/.ssh/private_key
